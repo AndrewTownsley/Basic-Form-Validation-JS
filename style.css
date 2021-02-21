@@ -57,7 +57,7 @@ h2 {
 
 .submit-btn {
   width: 100%;
-  background: #a664f6;
+  background: #7941be;
   border: none;
   border-radius: 3px;
   color: #fff;
@@ -68,7 +68,7 @@ h2 {
 }
 
 .submit-btn:hover {
-  background: #613a90;
+  background: #a15df5;
 }
 
 /* ------------------------SUCCESS // ERROR MESSAGE CLASSES------------------------------- */
