@@ -50,9 +50,15 @@ h1 {
 
 .form-control input {
   display: block;
+  background-color: rgb(236, 236, 236);
   border: 1px solid rgb(219, 219, 219);
   padding: 0.5rem;
   margin-bottom: 10px;
+}
+
+.form-control input:focus {
+  outline: 2px solid #7941be;
+  /* border: none; */
 }
 
 .submit-btn {
@@ -65,6 +71,10 @@ h1 {
   padding: 0.5rem;
   margin-top: 1rem;
   cursor: pointer;
+}
+
+.submit-btn.success {
+  background: #01dd3c;
 }
 
 .submit-btn:hover {
@@ -107,6 +117,7 @@ h1 {
     min-height: 100vh;
     height: 100%;
     padding: 1rem;
+    box-shadow: none;
   }
 
   .form-control label {

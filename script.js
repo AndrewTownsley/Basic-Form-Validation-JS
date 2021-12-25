@@ -3,12 +3,11 @@ const username = document.getElementById('username');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const passwordVerify = document.getElementById('passwordVerify');
+const title = document.getElementById('title');
 
 
 function showError(input, message) {
-
   const formControl = input.parentElement;
-  // console.log("error: ", formControl.classList);
   formControl.classList.add('error');  
   const small = formControl.querySelector('small');
   small.innerText = message;
@@ -16,8 +15,9 @@ function showError(input, message) {
 
 function showSuccess(input) {
   const formControl = input.parentElement;
-  // console.log("success: ", formControl.classList);
-  formControl.classList.add('success');}
+  formControl.classList.add('success');
+  titleSuccess();
+}
 
 function checkEmail(input) {
   const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -48,10 +48,9 @@ function checkEmail(input) {
   }
 
 function checkPasswordsMatch(input1, input2) {
-  console.log(input1.value);
-  console.log(input2.value);
+
   if(input1.value !== input2.value || input2.value !== input1.value) {
-    (showError(input2, 'Passwords do not match') && showError(input2, 'Passwords do not match'));
+    (showError(input2, 'passwords must match') && showError(input2, 'passwords must match'));
     } else {
       showSuccess(input1, input2);
     }
@@ -61,14 +60,22 @@ function checkPasswordsMatch(input1, input2) {
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
   }
 
+  
+  const titleSuccess = () => {
+    if(username.parentElement.classList.contains('success') 
+    && email.parentElement.classList.contains('success') 
+    && password.parentElement.classList.contains('success') 
+    && passwordVerify.parentElement.classList.contains('success')) {
+      (title.innerText = 'Account Created !' )
+    }
+  }
 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
-  console.log("=====================================");
 
   if
   (checkRequired([username, email, password, passwordVerify]));
-  checkLength(username, 3, 15);
+  checkLength(username, 6, 15);
   checkLength(password, 6, 25);
   checkEmail(email);
   checkPasswordsMatch(password, passwordVerify);
